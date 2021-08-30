@@ -46,6 +46,8 @@ void userLogIn(bool* loggedIn){
             cout << "password does not match username" << endl;
             cout << "password: " << endl;
             getline(cin, password);
+            // TO DO:
+            // add a way to exit validation without triggering loggedIn as true
         }
         (*loggedIn) = true;
     }

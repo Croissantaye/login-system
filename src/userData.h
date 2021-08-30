@@ -156,6 +156,9 @@ bool isValidPassword(std::string password, std::string name){
     return true;
 }
 
+// TO DO:
+// make this more efficient
+// maybe the linear search can be put into a function for reuse
 bool doesUserNameExist(std::string newUserName){
     std::string line;
     std::string userName;
@@ -176,6 +179,8 @@ bool doesUserNameExist(std::string newUserName){
     return false;
 }
 
+// TO DO:
+// refactor so that it is more efficient
 bool doesUserNameMatchPassword(std::string password){
     std::string line, userName, userPassword;
     std::ifstream usersFile;
