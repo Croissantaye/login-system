@@ -36,19 +36,27 @@ int main(){
 
 void userLogIn(bool* loggedIn){
     string userName, password;
-    cout << "user name: " << endl;
-    // cin.ignore();
-    getline(cin, userName);
-    if(doesUserNameExist(userName)){
-        cout << "password: " << endl;
-        getline(cin, password);
-        while(!doesUserNameMatchPassword(password)){
-            cout << "password does not match username" << endl;
+    userName = " ";
+    while (!doesUserNameExist(userName)){
+        cout << "user name: " << endl;
+        getline(cin, userName);
+        if(userName.compare("0") == 0) break;
+        if(doesUserNameExist(userName)){
             cout << "password: " << endl;
             getline(cin, password);
-            // TO DO:
-            // add a way to exit validation without triggering loggedIn as true
+            while(!doesUserNameMatchPassword(password)){
+                cout << "password does not match username" << endl;
+                cout << "Retype password or press 0 to exit" << endl;
+                cout << "password: " << endl;
+                getline(cin, password);
+                if(password.compare("0") == 0) break;
+            }
+            password.compare("0") == 0 ? (*loggedIn) = false : (*loggedIn) = true;
         }
-        (*loggedIn) = true;
+        else{
+            cout << "user name does not exist" << endl;
+            cout << "Retype username or press 0 to exit" << endl;
+        }
+        if (password.compare("0") == 0) break;        
     }
 }
